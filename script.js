@@ -1,5 +1,4 @@
-   const form = document.getElementById('container-form')
-
+ const form = document.getElementById('container-form')
  form.addEventListener('submit',(e)=>{
       e.preventDefault();
 
@@ -28,20 +27,21 @@
                } 
             });
          }countCheck()
-  
-     //Impedindo que o usuário crie uma senha sem definir caracteres
-         if(checkSelected == 0){
-            alert('Defina os caracteres da senha!')
-            passwordElement.innerText = '';
-            return;
-         }
-     //Impedindo que o usuário crie uma senha sem definir um tamanho
-         if(sizePassword == ""){
-            alert('Defina um tamanho para a senha')
-            passwordElement.innerText = ''
-            return;
-         }
-
+    
+          //Verificando se o usuário definiu caracteres para a senha
+             if (checkSelected == 0) {
+               alert("Defina os caracteres da senha!");
+               passwordElement.innerText = "";
+               return;
+             }
+    
+         //Verificando se o usuário definiu um tamanho para a senha
+             if (sizePassword == "") {
+               alert("Defina um tamanho para a senha");
+               passwordElement.innerText = "";
+               return;
+             }
+ 
 
          //o resultado da divisão entre o valor de input number e os checkbox selecionados 
          //será o numero de vezes que o laço FOR deverá ser executado
