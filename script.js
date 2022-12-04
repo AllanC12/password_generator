@@ -36,7 +36,7 @@
              }
     
          //Verificando se o usuário definiu um tamanho para a senha
-             if (sizePassword == "") {
+             if (!sizePassword) {
                alert("Defina um tamanho para a senha");
                passwordElement.innerText = "";
                return;
