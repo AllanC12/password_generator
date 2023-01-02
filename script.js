@@ -1,79 +1,43 @@
- const form = document.getElementById('container-form')
- form.addEventListener('submit',(e)=>{
-      e.preventDefault();
+const create = document.querySelector('.create');
+const passwordElement = document.getElementById('password');
+const size = document.getElementById('quantity')
+const checkBoxes = document.querySelectorAll('.check');
 
-      const input_letters = document.getElementById('letters')
-      const input_upperLetters = document.getElementById('upper-letters')
-      const input_numbers = document.getElementById('numbers')
-      const input_simbols = document.getElementById('simbols')
-      const passwordElement = document.getElementById('password')
-      const sizePassword = document.getElementById('quantity').value;
-      const int_size_password = parseInt(document.getElementById('quantity').value);
-
-      const char = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-      const char_upper = ['Z','Y','X','W','V','U','T','S','R','Q','P','O','N','M','L','K','J','I','H','G','F','E','D','C','B','A']
-      const numbers = [0,1,2,3,4,5,6,7,8,9];
-      const simbol = ['#','$','%','&','*','+']
-
-      let password = ''
-      
-      let checkSelected = 0;
-      const checkbox = document.querySelectorAll('.check')
-      //contando quantos checkbox estão selecionados para fazer a divisão pelo tamanho da senha no laço FOR
-         function countCheck(){
-            checkbox.forEach(check => {
-               if(check.checked){
-                  checkSelected++;
-               } 
-            });
-         }countCheck()
-    
-          //Verificando se o usuário definiu caracteres para a senha
-             if (checkSelected == 0) {
-               alert("Defina os caracteres da senha!");
-               passwordElement.innerText = "";
-               return;
-             }
-    
-         //Verificando se o usuário definiu um tamanho para a senha
-             if (!sizePassword) {
-               alert("Defina um tamanho para a senha");
-               passwordElement.innerText = "";
-               return;
-             }
  
-
-         //o resultado da divisão entre o valor de input number e os checkbox selecionados 
-         //será o numero de vezes que o laço FOR deverá ser executado
-
-         for(i = 0; i < int_size_password / checkSelected; i++){
-            let randChar = Math.floor(Math.random() * char.length)
-            let randSimbol = Math.floor(Math.random() * simbol.length)
-            let randnumber = Math.floor(Math.random() * numbers.length)
-
-            if(input_upperLetters.checked){
-               password += char_upper[randChar];
-               
-            }
-
-            if(input_letters.checked){
-               password += char[randChar]
-               }
-
-            if(input_numbers.checked){
-               password += numbers[randnumber];
-            }
-
-            if(input_simbols.checked){
-               password += simbol[randSimbol];
-            }
-         }  
-
-         // limitando a senha ao tamanho do valor definido no input type number
-         if(int_size_password % checkSelected != 0){
-            password = password.slice(0,int_size_password)
-         }
-
-            passwordElement.innerText = password
+create.addEventListener('click',(e)=>{
+    e.preventDefault()
  
-   })
+//valores que serão convertidos para string com base na tabela ASCII
+    let fields = {
+        letters: [97,122],
+        upper_letters: [65,90],
+        numbers:[48,57],
+        simbols:[33,47]
+    }
+    
+//checkeds guarda o id dos inputs selecionados e password guarda a senha que será gerada no laço for
+    let checkeds = []
+    let password = ''
+
+//preenchendo checkeds com o id dos checkbox selecionados
+    checkBoxes.forEach((checkbox)=>{
+        if(checkbox.checked)
+          checkeds.push(checkbox.id)
+    })
+ 
+//fazendo a conversão para string com base no campo aleatório escolhido dentro de checkeds
+    for(let i = 0; i < size.value; i++){
+        let fieldRandom = checkeds[generateRandomNumber(0,checkeds.length - 1)]
+        password += String.fromCharCode(generateRandomNumber(...fields[fieldRandom])) 
+    }
+
+//colocando a senha ja gerada dentro do elemento HTML
+    passwordElement.innerText = password
+
+ 
+})
+
+//função genérica que gera números aleatórios entre um valor minimo e um máximo
+function generateRandomNumber(min,max){
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
