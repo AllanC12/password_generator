@@ -7,6 +7,7 @@ const checkBoxes = document.querySelectorAll('.check');
 create.addEventListener('click',(e)=>{
     e.preventDefault()
 
+
     let fields = {
         letters: [97,122],
         upper_letters: [65,90],
@@ -16,11 +17,27 @@ create.addEventListener('click',(e)=>{
 
     let checkeds = []
     let password = ''
-
+    
+    let countChecked = 0;
     checkBoxes.forEach((checkbox)=>{
-        if(checkbox.checked)
-        checkeds.push(checkbox.id)
+        if(checkbox.checked){
+           checkeds.push(checkbox.id)
+           countCheck++
+        }   
+        
     })
+ 
+   if (!size) {
+         alert("Defina um tamanho para a senha");
+         passwordElement.innerText = "";
+         return;
+    }
+
+   if (countChecked == 0) {
+         alert("Defina os caracteres da senha!");
+         passwordElement.innerText = "";
+         return;
+    }
 
     let choosenField = []
 
