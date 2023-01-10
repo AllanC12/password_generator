@@ -42,13 +42,13 @@ form.addEventListener("submit", (e) => {
          return;
       }
 
-
-  //o resultado da divisão entre o valor de input number e os checkbox selecionados
-  //será o numero de vezes que o laço FOR deverá ser executado
-
-  function generateRandomNumber(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
+      
+ function generateRandomNumber(min,max){
+   return Math.floor(Math.random() * (max - min + 1) + min)
+ }
+      
+    //o resultado da divisão entre o valor de input number e os checkbox selecionados
+    //será o numero de vezes que o laço FOR deverá ser executado
 
   for (i = 0; i < int_size_password / checkSelected; i++) {
 
