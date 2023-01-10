@@ -8,6 +8,7 @@ create.addEventListener('click',(e)=>{
     e.preventDefault()
 
 
+
     let fields = {
         letters: [97,122],
         upper_letters: [65,90],
@@ -17,50 +18,46 @@ create.addEventListener('click',(e)=>{
 
     let checkeds = []
     let password = ''
-    
     let countChecked = 0;
-    checkBoxes.forEach((checkbox)=>{
-        if(checkbox.checked){
-           checkeds.push(checkbox.id)
-           countCheck++
-        }   
-        
-    })
- 
-   if (!size) {
-         alert("Defina um tamanho para a senha");
-         passwordElement.innerText = "";
-         return;
-    }
 
-   if (countChecked == 0) {
-         alert("Defina os caracteres da senha!");
-         passwordElement.innerText = "";
-         return;
-    }
+    function generateRandomNumber(min,max){
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
 
-    let choosenField = []
+    function verifyCheckbox(){
+        checkBoxes.forEach((checkbox)=>{
+            if(checkbox.checked){
+                checkeds.push(checkbox.id)
+                countChecked++;
+            }
+        })
+    }verifyCheckbox()
 
-    for(let i = 0; i < size.value; i++){
-        let field = checkeds[i]
-        choosenField.push(field)
 
-        let fieldRandom = choosenField[generateRandomNumber(0,checkeds.length - 1)]
-
-        if(i > 3){
-         password += String.fromCharCode(generateRandomNumber(...fields[fieldRandom])) 
-
-        }else{
-            password += String.fromCharCode(generateRandomNumber(...fields[field])) 
+    function verifications(){
+        if(countChecked == 0){
+            alert('Defina os caracteres da senha')
+            return;
         }
 
-    }
+        if(!size.value){
+            alert('Defina um tamanho para a senha')
+        }
+    }verifications()
 
-    passwordElement.innerText = password
+
+
+
+    function addCharInPassword(){
+        for(let i = 0; i < size.value; i++){
+            let field = checkeds[i]
+            checkeds.push(checkeds[generateRandomNumber(0,checkeds.length - 1)])
+
+            password += String.fromCharCode(generateRandomNumber(...fields[field]))
     
+        }
+        passwordElement.innerText = password
+    }addCharInPassword()
+
+
 })
-
-function generateRandomNumber(min,max){
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
-
