@@ -16,30 +16,24 @@ create.addEventListener('click',(e)=>{
 
     let checkeds = []
     let password = ''
+    let countChecked = 0;
 
     checkBoxes.forEach((checkbox)=>{
         if(checkbox.checked)
         checkeds.push(checkbox.id)
+        countChecked++;
     })
 
     let choosenField = []
-
+    
     for(let i = 0; i < size.value; i++){
         let field = checkeds[i]
-        choosenField.push(field)
+        checkeds.push(checkeds[generateRandomNumber(0,checkeds.length - 1)])
 
-        let fieldRandom = choosenField[generateRandomNumber(0,checkeds.length - 1)]
-
-        if(i > 3){
-         password += String.fromCharCode(generateRandomNumber(...fields[fieldRandom])) 
-
-        }else{
-            password += String.fromCharCode(generateRandomNumber(...fields[field])) 
-        }
-
+        password += String.fromCharCode(generateRandomNumber(...fields[field]))
+ 
     }
-
-    passwordElement.innerText = password
+     passwordElement.innerText = password
     
 })
 
