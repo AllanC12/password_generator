@@ -52,9 +52,7 @@ create.addEventListener('click',(e)=>{
         for(let i = 0; i < size.value; i++){
             let field = checkeds[i]
             checkeds.push(checkeds[generateRandomNumber(0,checkeds.length - 1)])
-
             password += String.fromCharCode(generateRandomNumber(...fields[field]))
-    
         }
         passwordElement.innerText = password
     }addCharInPassword()
