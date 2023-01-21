@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script defer src="script.js"></script> -->
+    <!-- <script src="functions.js" defer></script> -->
+    <script src="password.js" defer></script>
+    <!-- <script defer src="file.js"></script> -->
     <title>Password generator</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h2>Gerador de senhas</h2>
-            <form id="container-form">
-                <div class="screen"><span id="password"></span></div>
-                <div class="wraper-lable">
-                    <label for="quantity">Quantidade de caracteres</label> <input type="number" id="quantity"  min="4" max="20">
-                </div>
+      <h2>Gerador de senhas</h2>
+      <form id="container-form">
+        <div class="screen"><span id="password"></span></div>
+        <div class="wraper-lable">
+          <label for="quantity">Quantidade de caracteres</label>
+          <input type="number" id="quantity" min="4" max="20" />
+        </div>
 
-                <div class="wraper-lable">
-                    <label for="letters">Inserir letras</label> <input type="checkbox" class="check" id="letters">
-                </div>
+        <div class="wraper-lable">
+          <label for="letters">Inserir letras</label>
+          <input type="checkbox" class="check" id="letters" />
+        </div>
 
-                <div class="wraper-lable">
-                    <label for="upper-letters">Inserir letras maiúsculas</label> <input type="checkbox" class="check" id="upper-letters">
-                </div>
+        <div class="wraper-lable">
+          <label for="upper-letters">Inserir letras maiúsculas</label>
+          <input type="checkbox" class="check" id="upper_letters" />
+        </div>
 
-                <div class="wraper-lable">
-                    <label for="numbers">Inserir números</label> <input type="checkbox" class="check" id="numbers">
-                </div>
+        <div class="wraper-lable">
+          <label for="numbers">Inserir números</label>
+          <input type="checkbox" class="check" id="numbers" />
+        </div>
 
-                <div class="wraper-lable"> 
-                    <label for="simbols">Inserir símbolos</label> <input type="checkbox" class="check" id="simbols">
-                 </div>
-
-                <div class="wraper-lable"> 
-                    <input class="create" type="submit" value="Gerar senha">
-                 </div>
-
-                 
-           </form>
+        <div class="wraper-lable">
+          <label for="simbols">Inserir símbolos</label>
+          <input type="checkbox" class="check" id="simbols" />
+        </div>
+        
+        <div class="wraper-submit">
+          <input class="create" type="submit" value="Gerar senha" />
+        </div>
+       </form>
     </div>
-    
-</body>
+  </body>
 </html>
