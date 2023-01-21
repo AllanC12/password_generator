@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #692afa;
+  padding: 0 2%;
 }
 
 .container {
@@ -24,7 +25,8 @@ body {
   border-radius: 20px;
   -webkit-box-shadow: -1px 6px 12px -1px #000000;
   box-shadow: -1px 6px 12px -1px #000000;
-}
+  padding: 2%;
+ }
 
 .container h2 {
   color: white;
@@ -61,13 +63,20 @@ form label {
   color: white;
 }
 
+.wraper-submit{
+  display: flex;
+  justify-content: center;
+}
+
 form .create {
-  width: 350px;
+  width: 100%;
+  max-width: 250px;
   font-size: 20px;
+  margin: 2vh;
   padding: 5px;
-  margin-bottom: 15px;
   color: white;
   background-color: #692afa;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
