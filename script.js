@@ -1,11 +1,11 @@
 const form = document.getElementById('container-form')
+const btn_generate = document.querySelector('.create')
 const passwordElement = document.getElementById('password');
 const size = document.getElementById('quantity')
 const checkBoxes = document.querySelectorAll('.check');
 
  
-form.addEventListener('submit',(e)=>{
-    e.preventDefault()
+btn_generate.addEventListener('click',()=>{
 
     let fields = {
         letters: [97,122],
