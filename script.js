@@ -1,4 +1,3 @@
-const form = document.getElementById('container-form')
 const btn_generate = document.querySelector('.create')
 const passwordElement = document.getElementById('password');
 const size = document.getElementById('quantity')
