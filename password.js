@@ -1,14 +1,11 @@
-const create = document.querySelector('.create');
+ const btn_generate = document.querySelector('.create')
 const passwordElement = document.getElementById('password');
 const size = document.getElementById('quantity')
 const checkBoxes = document.querySelectorAll('.check');
 
  
-create.addEventListener('click',(e)=>{
-    e.preventDefault()
-
-
-
+btn_generate.addEventListener('click',()=>{
+ 
     let fields = {
         letters: [97,122],
         upper_letters: [65,90],
